@@ -5,6 +5,9 @@
  */
 
 function load script_(){
+  
+  $path = get_template_directory_uri();
+
   //css
   wp_enqueue_style('bootstrap-css', $path.'/assets/vendor/bootstrap/css/bootstrap.min.css', false, '1.0');
   wp_enqueue_style('main-css', $path.'/assets/css/main.min.css', false, '1.0');

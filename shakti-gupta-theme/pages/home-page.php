@@ -5,9 +5,12 @@
  */
 
 // HTML Header Template
-get_header();
+get_header();?>
 
-// Get Dynamic Content from WordPress
+<!-- Navigation -->
+<?php get_template_part('templates/nav'); ?>
+
+<?php// Get Dynamic Content from WordPress
 if(have_posts()){
   while(have_posts()){
     the_post();
@@ -15,7 +18,8 @@ if(have_posts()){
     /** THis fetches the content */
     the_content();
   }
-}
+} ?>
 
-// HTML Footer Template
+<?php get_template_part('templates/display-footer'); ?>
+<?php// HTML Footer Template
 get_footer();

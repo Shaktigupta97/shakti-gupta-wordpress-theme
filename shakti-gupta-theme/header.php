@@ -8,7 +8,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  
+  <?php
+  $sep = ' | ';
+  $name = get_bloginfo( 'name' );
+
+  if( is_home() || is_front_page() )
+    $title = $name . $sep . get_bloginfo( 'description' );
+
+  if( is_single() || is_page() )
+    $title = wp_title( $sep, false, 'right' ) . $name;
+
+?>
+<title><?php echo $title;?></title>
 
   <!-- WordPress Default Head -->
   <?php wp_head(); ?>

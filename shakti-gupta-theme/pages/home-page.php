@@ -30,13 +30,16 @@ if ( is_user_logged_in() ) {
     <div class="col-12 pt-5 pb-4">
 
       <?php // Get Dynamic Content from WordPress
+      get_the_content();
       if(have_posts()){
-        while(have_posts()){
-          the_post();
-
-          /** This fetches the content */
-          the_content();
-        }
+            while(have_posts()){
+                the_post();
+      
+                /** This fetches the content */
+                $content = get_the_content();
+      
+                $text = get_post_meta( get_the_ID(), 'yourprefix_text', true );
+           }
       } ?>
 
     </div>
@@ -61,6 +64,11 @@ if ( is_user_logged_in() ) {
 <td><?php echo $user_email; ?></td>
 </tr>
 </table>
+
+<div>
+<p><?php echo  $content; ?></p>
+<p><?php echo esc_html( $text ); ?></p>
+</div>
 
 <?php get_template_part('templates/display-footer'); ?>
 <?php// HTML Footer Template

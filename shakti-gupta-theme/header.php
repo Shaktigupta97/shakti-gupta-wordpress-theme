@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <?php
+  <!-- <?php
   $sep = ' | ';
   $name = get_bloginfo( 'name' );
 
@@ -19,8 +19,9 @@
   if( is_single() || is_page() )
     $title = wp_title( $sep, false, 'right' ) . $name;
 
-?>
-<title><?php echo $title;?></title>
+?> -->
+
+<title><?php echo get_the_title(); ?></title>
 
   <!-- WordPress Default Head -->
   <?php wp_head(); ?>

@@ -4,22 +4,13 @@
  * @package:        wordpress-shakti-theme
  */
 $user_info = get_userdata(1);
-$user_name = $user_info->display_name;
-$user_email = $user_info->user_email;
-$first_name = $user_info->first_name;
-$last_name = $user_info->last_name;
+$author_name = $user_info->display_name;
+$author_email = $user_info->user_email;
+$author_website = $user_info->user_url;
  
 // HTML Header Template
 get_header();?>
-
-<!-- User check function -->
-<?php
-if ( is_user_logged_in() ) {
-  echo $user_name .", ". $last_name .",". $user_email;
-} else {
-    echo 'You are not logged in.';
-}
-?>
+<title><?php echo get_the_title(); ?></title>
 
 <!-- Navigation -->
 <?php get_template_part('templates/nav'); ?>
@@ -36,36 +27,30 @@ if ( is_user_logged_in() ) {
       
                 /** This fetches the content */
                 $content = get_the_content();
-      
-                $text = get_post_meta( get_the_ID(), 'yourprefix_url', true );
+                $author = get_post_meta( get_the_ID(), $prefix."author_name", true );
            }
       } ?>
-
     </div>
   </div>
 </div>
-
+<p><?php echo  $content; ?></p>
 <table>
 <tr>
-<td>first name</td>
-<td><?php echo $first_name; ?></td>
+<td>Name</td>
+<td><?php echo $author_name; ?></td>
 </tr>
 <tr>
-<td>last name</td>
-<td><?php echo $last_name; ?></td>
+<td>Email</td>
+<td><?php echo $author_email; ?></td>
 </tr>
 <tr>
-<td>user name</td>
-<td><?php echo $user_name; ?></td>
-</tr>
-<tr>
-<td>email</td>
-<td><?php echo $user_email; ?></td>
+<td>Website</td>
+<td><?php echo $author_website; ?></td>
 </tr>
 </table>
 
 <div>
-<p><?php echo  $content; ?></p>
+
 <p><?php var_dump($text); ?></p>
 </div>
 

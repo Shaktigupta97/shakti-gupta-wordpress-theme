@@ -28,7 +28,7 @@ function cmb2_sample_metaboxes() {
 		'desc'       => __( 'field description (optional)', 'cmb2' ),
 		'id'         => 'yourprefix_text',
 		'type'       => 'text',
-		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+	 // function should return a bool value
 		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
 		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
 		// 'on_front'        => false, // Optionally designate a field to wp-admin only
